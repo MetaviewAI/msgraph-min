@@ -45,6 +45,6 @@ Only needed when you adopt new Graph endpoints or want newer Kiota runtime versi
 
    Add more `--include-path` lines if you need new endpoints.
 
-3. Add an `src/msgraph_min/__init__.py` file that imports `GraphServiceClient`
+3. Add a `src/msgraph_min/__init__.py` file that imports `GraphServiceClient`
 
 4. Update downstream `pyproject.toml` files with the new commit.
