@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "msgraph_min", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = ">=3.11,<3.14"
 microsoft-kiota-bundle = "^1.9.3"
 
 
