@@ -12,8 +12,9 @@ Endpoints included:
 
 ## Why this repo exists
 
-The official **microsoft-graph-python** SDK ships the entire Graph surface and weighs ~180 MB uncompressed—well over AWS Lambda’s 250 MB limit.  
-`msgraph-min` is generated with **Kiota’s `--include-path`** filter so it contains **only the models & request-builders we need**, keeping deployment packages small enough.
+The official **microsoft-graph-python** SDK ships the entire Graph surface and weighs ~180 MB uncompressed, making us go well over AWS Lambda’s 250 MB limit.
+
+`msgraph-min` is generated with **Kiota’s `--include-path`** filter so it contains **only the models & request-builders we need**, keeping packages small enough to deploy.
 
 ---
 
@@ -44,4 +45,6 @@ Only needed when you adopt new Graph endpoints or want newer Kiota runtime versi
 
    Add more `--include-path` lines if you need new endpoints.
 
-3. Update downstream `pyproject.toml` files with the new commit.
+3. Add an `src/msgraph_min/__init__.py` file that imports `GraphServiceClient`
+
+4. Update downstream `pyproject.toml` files with the new commit.
