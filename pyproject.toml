@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "msgraph-min"
+version = "0.1.0"
+description = ""
+authors = ["Saksham Shah <saksham@metaview.ai>"]
+readme = "README.md"
+packages = [{include = "msgraph_min", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+microsoft-kiota-bundle = "^1.9.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
