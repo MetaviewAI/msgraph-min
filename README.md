@@ -1,6 +1,6 @@
 # msgraph-min
 
-*A super-lightweight Microsoft Graph client generated with Kiota, trimmed to just the endpoints we use at Metaview.*
+*A super-lightweight Microsoft Graph client generated with Kiota.*
 
 Endpoints included:
 - `/me/events/{id}`
