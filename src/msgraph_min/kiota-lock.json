@@ -1,0 +1,39 @@
+{
+  "descriptionHash": "4392489488B552B05E83A63D1BBDBD91A85B973DA9933C45D5124B8AD1E036B4F2FCDFE31068A06BF93F30D04C0642B9C89894C20DFC912D510EF0CE7F930E7D",
+  "descriptionLocation": "https://aka.ms/graph/v1.0/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.26.1",
+  "clientClassName": "GraphServiceClient",
+  "typeAccessModifier": "Public",
+  "clientNamespaceName": "msgraph_min",
+  "language": "Python",
+  "usesBackingStore": false,
+  "excludeBackwardCompatible": true,
+  "includeAdditionalData": true,
+  "disableSSLValidation": false,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain;q=0.9",
+    "application/x-www-form-urlencoded;q=0.2",
+    "multipart/form-data;q=0.1"
+  ],
+  "includePatterns": [
+    "/me/events/{event-id}",
+    "/me/calendar/calendarView",
+    "/me/calendar/events",
+    "/search/query"
+  ],
+  "excludePatterns": [],
+  "disabledValidationRules": []
+}
