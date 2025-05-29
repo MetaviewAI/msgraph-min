@@ -9,6 +9,7 @@ packages = [{include = "msgraph_min", from = "src"}]
 [tool.poetry.dependencies]
 python = ">=3.11,<3.14"
 microsoft-kiota-bundle = "^1.9.3"
+microsoft-kiota-authentication-azure = "^1.9.3"
 
 
 [build-system]
