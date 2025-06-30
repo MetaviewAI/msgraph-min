@@ -10,6 +10,8 @@ packages = [{include = "msgraph_min", from = "src"}]
 python = ">=3.11,<3.14"
 microsoft-kiota-bundle = "^1.9.3"
 microsoft-kiota-authentication-azure = "^1.9.3"
+requests = "^2.32.4"
+urllib3 = "^2.5.0"
 
 
 [build-system]
