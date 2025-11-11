@@ -14,6 +14,7 @@ if TYPE_CHECKING:
     from .education_link_resource import EducationLinkResource
     from .education_media_resource import EducationMediaResource
     from .education_power_point_resource import EducationPowerPointResource
+    from .education_speaker_progress_resource import EducationSpeakerProgressResource
     from .education_teams_app_resource import EducationTeamsAppResource
     from .education_word_resource import EducationWordResource
     from .identity_set import IdentitySet
@@ -82,6 +83,10 @@ class EducationResource(AdditionalDataHolder, Parsable):
             from .education_power_point_resource import EducationPowerPointResource
 
             return EducationPowerPointResource()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.educationSpeakerProgressResource".casefold():
+            from .education_speaker_progress_resource import EducationSpeakerProgressResource
+
+            return EducationSpeakerProgressResource()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.educationTeamsAppResource".casefold():
             from .education_teams_app_resource import EducationTeamsAppResource
 
@@ -105,6 +110,7 @@ class EducationResource(AdditionalDataHolder, Parsable):
         from .education_link_resource import EducationLinkResource
         from .education_media_resource import EducationMediaResource
         from .education_power_point_resource import EducationPowerPointResource
+        from .education_speaker_progress_resource import EducationSpeakerProgressResource
         from .education_teams_app_resource import EducationTeamsAppResource
         from .education_word_resource import EducationWordResource
         from .identity_set import IdentitySet
@@ -117,6 +123,7 @@ class EducationResource(AdditionalDataHolder, Parsable):
         from .education_link_resource import EducationLinkResource
         from .education_media_resource import EducationMediaResource
         from .education_power_point_resource import EducationPowerPointResource
+        from .education_speaker_progress_resource import EducationSpeakerProgressResource
         from .education_teams_app_resource import EducationTeamsAppResource
         from .education_word_resource import EducationWordResource
         from .identity_set import IdentitySet

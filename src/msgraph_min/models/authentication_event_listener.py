@@ -11,6 +11,8 @@ if TYPE_CHECKING:
     from .on_attribute_collection_start_listener import OnAttributeCollectionStartListener
     from .on_attribute_collection_submit_listener import OnAttributeCollectionSubmitListener
     from .on_authentication_method_load_start_listener import OnAuthenticationMethodLoadStartListener
+    from .on_email_otp_send_listener import OnEmailOtpSendListener
+    from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
     from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
     from .on_token_issuance_start_listener import OnTokenIssuanceStartListener
     from .on_user_create_start_listener import OnUserCreateStartListener
@@ -19,10 +21,12 @@ from .entity import Entity
 
 @dataclass
 class AuthenticationEventListener(Entity, Parsable):
-    # Indicates the authenticationEventListener is associated with an authenticationEventsFlow. Read-only.
+    # The identifier of the authenticationEventsFlow object.
     authentication_events_flow_id: Optional[str] = None
     # The conditions on which this authenticationEventListener should trigger.
     conditions: Optional[AuthenticationConditions] = None
+    # The displayName property
+    display_name: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
     
@@ -56,6 +60,14 @@ class AuthenticationEventListener(Entity, Parsable):
             from .on_authentication_method_load_start_listener import OnAuthenticationMethodLoadStartListener
 
             return OnAuthenticationMethodLoadStartListener()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.onEmailOtpSendListener".casefold():
+            from .on_email_otp_send_listener import OnEmailOtpSendListener
+
+            return OnEmailOtpSendListener()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.onFraudProtectionLoadStartListener".casefold():
+            from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
+
+            return OnFraudProtectionLoadStartListener()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.onInteractiveAuthFlowStartListener".casefold():
             from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
 
@@ -81,6 +93,8 @@ class AuthenticationEventListener(Entity, Parsable):
         from .on_attribute_collection_start_listener import OnAttributeCollectionStartListener
         from .on_attribute_collection_submit_listener import OnAttributeCollectionSubmitListener
         from .on_authentication_method_load_start_listener import OnAuthenticationMethodLoadStartListener
+        from .on_email_otp_send_listener import OnEmailOtpSendListener
+        from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
         from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
         from .on_token_issuance_start_listener import OnTokenIssuanceStartListener
         from .on_user_create_start_listener import OnUserCreateStartListener
@@ -91,6 +105,8 @@ class AuthenticationEventListener(Entity, Parsable):
         from .on_attribute_collection_start_listener import OnAttributeCollectionStartListener
         from .on_attribute_collection_submit_listener import OnAttributeCollectionSubmitListener
         from .on_authentication_method_load_start_listener import OnAuthenticationMethodLoadStartListener
+        from .on_email_otp_send_listener import OnEmailOtpSendListener
+        from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
         from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
         from .on_token_issuance_start_listener import OnTokenIssuanceStartListener
         from .on_user_create_start_listener import OnUserCreateStartListener
@@ -98,6 +114,7 @@ class AuthenticationEventListener(Entity, Parsable):
         fields: dict[str, Callable[[Any], None]] = {
             "authenticationEventsFlowId": lambda n : setattr(self, 'authentication_events_flow_id', n.get_str_value()),
             "conditions": lambda n : setattr(self, 'conditions', n.get_object_value(AuthenticationConditions)),
+            "displayName": lambda n : setattr(self, 'display_name', n.get_str_value()),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -114,5 +131,6 @@ class AuthenticationEventListener(Entity, Parsable):
         super().serialize(writer)
         writer.write_str_value("authenticationEventsFlowId", self.authentication_events_flow_id)
         writer.write_object_value("conditions", self.conditions)
+        writer.write_str_value("displayName", self.display_name)
     
 

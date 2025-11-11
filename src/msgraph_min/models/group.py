@@ -21,6 +21,7 @@ if TYPE_CHECKING:
     from .license_processing_state import LicenseProcessingState
     from .onenote import Onenote
     from .on_premises_provisioning_error import OnPremisesProvisioningError
+    from .on_premises_sync_behavior import OnPremisesSyncBehavior
     from .planner_group import PlannerGroup
     from .profile_photo import ProfilePhoto
     from .resource_specific_permission_grant import ResourceSpecificPermissionGrant
@@ -89,7 +90,7 @@ class Group(DirectoryObject, Parsable):
     is_archived: Optional[bool] = None
     # Indicates whether this group can be assigned to a Microsoft Entra role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true, visibility must be Hidden, and the group can't be a dynamic group (that is, groupTypes can't contain DynamicMembership). Only callers with at least the Privileged Role Administrator role can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).
     is_assignable_to_role: Optional[bool] = None
-    # The isManagementRestricted property
+    # Indicates whether the group is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a group member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit. Returned only on $select.
     is_management_restricted: Optional[bool] = None
     # Indicates whether the signed-in user is subscribed to receive email conversations. The default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
     is_subscribed_by_mail: Optional[bool] = None
@@ -123,6 +124,8 @@ class Group(DirectoryObject, Parsable):
     on_premises_sam_account_name: Optional[str] = None
     # Contains the on-premises security identifier (SID) for the group synchronized from on-premises to the cloud. Read-only. Returned by default. Supports $filter (eq including on null values).
     on_premises_security_identifier: Optional[str] = None
+    # The onPremisesSyncBehavior property
+    on_premises_sync_behavior: Optional[OnPremisesSyncBehavior] = None
     # true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
     on_premises_sync_enabled: Optional[bool] = None
     # The onenote property
@@ -205,6 +208,7 @@ class Group(DirectoryObject, Parsable):
         from .license_processing_state import LicenseProcessingState
         from .onenote import Onenote
         from .on_premises_provisioning_error import OnPremisesProvisioningError
+        from .on_premises_sync_behavior import OnPremisesSyncBehavior
         from .planner_group import PlannerGroup
         from .profile_photo import ProfilePhoto
         from .resource_specific_permission_grant import ResourceSpecificPermissionGrant
@@ -227,6 +231,7 @@ class Group(DirectoryObject, Parsable):
         from .license_processing_state import LicenseProcessingState
         from .onenote import Onenote
         from .on_premises_provisioning_error import OnPremisesProvisioningError
+        from .on_premises_sync_behavior import OnPremisesSyncBehavior
         from .planner_group import PlannerGroup
         from .profile_photo import ProfilePhoto
         from .resource_specific_permission_grant import ResourceSpecificPermissionGrant
@@ -278,6 +283,7 @@ class Group(DirectoryObject, Parsable):
             "onPremisesProvisioningErrors": lambda n : setattr(self, 'on_premises_provisioning_errors', n.get_collection_of_object_values(OnPremisesProvisioningError)),
             "onPremisesSamAccountName": lambda n : setattr(self, 'on_premises_sam_account_name', n.get_str_value()),
             "onPremisesSecurityIdentifier": lambda n : setattr(self, 'on_premises_security_identifier', n.get_str_value()),
+            "onPremisesSyncBehavior": lambda n : setattr(self, 'on_premises_sync_behavior', n.get_object_value(OnPremisesSyncBehavior)),
             "onPremisesSyncEnabled": lambda n : setattr(self, 'on_premises_sync_enabled', n.get_bool_value()),
             "onenote": lambda n : setattr(self, 'onenote', n.get_object_value(Onenote)),
             "owners": lambda n : setattr(self, 'owners', n.get_collection_of_object_values(DirectoryObject)),
@@ -360,6 +366,7 @@ class Group(DirectoryObject, Parsable):
         writer.write_collection_of_object_values("onPremisesProvisioningErrors", self.on_premises_provisioning_errors)
         writer.write_str_value("onPremisesSamAccountName", self.on_premises_sam_account_name)
         writer.write_str_value("onPremisesSecurityIdentifier", self.on_premises_security_identifier)
+        writer.write_object_value("onPremisesSyncBehavior", self.on_premises_sync_behavior)
         writer.write_bool_value("onPremisesSyncEnabled", self.on_premises_sync_enabled)
         writer.write_object_value("onenote", self.onenote)
         writer.write_collection_of_object_values("owners", self.owners)

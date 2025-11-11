@@ -7,6 +7,8 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .additional_options import AdditionalOptions
     from .case_operation import CaseOperation
+    from .cloud_attachment_version import CloudAttachmentVersion
+    from .document_version import DocumentVersion
     from .ediscovery_search import EdiscoverySearch
     from .export_criteria import ExportCriteria
     from .export_file_metadata import ExportFileMetadata
@@ -17,17 +19,21 @@ from .case_operation import CaseOperation
 
 @dataclass
 class EdiscoverySearchExportOperation(CaseOperation, Parsable):
-    # The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue.
+    # The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue, htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport.
     additional_options: Optional[AdditionalOptions] = None
+    # The versions of cloud attachments to include in messages. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
+    cloud_attachment_version: Optional[CloudAttachmentVersion] = None
     # The description of the export by the user.
     description: Optional[str] = None
     # The name of export provided by the user.
     display_name: Optional[str] = None
+    # The versions of files in SharePoint to include. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
+    document_version: Optional[DocumentVersion] = None
     # Items to be included in the export. The possible values are: searchHits, partiallyIndexed, unknownFutureValue.
     export_criteria: Optional[ExportCriteria] = None
     # Contains the properties for an export file metadata, including downloadUrl, fileName, and size.
     export_file_metadata: Optional[list[ExportFileMetadata]] = None
-    # Format of the emails of the export. The possible values are: pst, msg, eml, unknownFutureValue.
+    # Format of the emails of the export. The possible values are: pst, msg, eml (deprecated), unknownFutureValue. The eml member is deprecated. It remains in v1.0 for backward compatibility. Going forward, use either pst or msg.
     export_format: Optional[ExportFormat] = None
     # Location scope for partially indexed items. You can choose to include partially indexed items only in responsive locations with search hits or in all targeted locations. The possible values are: responsiveLocations, nonresponsiveLocations, unknownFutureValue.
     export_location: Optional[ExportLocation] = None
@@ -56,6 +62,8 @@ class EdiscoverySearchExportOperation(CaseOperation, Parsable):
         """
         from .additional_options import AdditionalOptions
         from .case_operation import CaseOperation
+        from .cloud_attachment_version import CloudAttachmentVersion
+        from .document_version import DocumentVersion
         from .ediscovery_search import EdiscoverySearch
         from .export_criteria import ExportCriteria
         from .export_file_metadata import ExportFileMetadata
@@ -64,6 +72,8 @@ class EdiscoverySearchExportOperation(CaseOperation, Parsable):
 
         from .additional_options import AdditionalOptions
         from .case_operation import CaseOperation
+        from .cloud_attachment_version import CloudAttachmentVersion
+        from .document_version import DocumentVersion
         from .ediscovery_search import EdiscoverySearch
         from .export_criteria import ExportCriteria
         from .export_file_metadata import ExportFileMetadata
@@ -72,8 +82,10 @@ class EdiscoverySearchExportOperation(CaseOperation, Parsable):
 
         fields: dict[str, Callable[[Any], None]] = {
             "additionalOptions": lambda n : setattr(self, 'additional_options', n.get_collection_of_enum_values(AdditionalOptions)),
+            "cloudAttachmentVersion": lambda n : setattr(self, 'cloud_attachment_version', n.get_enum_value(CloudAttachmentVersion)),
             "description": lambda n : setattr(self, 'description', n.get_str_value()),
             "displayName": lambda n : setattr(self, 'display_name', n.get_str_value()),
+            "documentVersion": lambda n : setattr(self, 'document_version', n.get_enum_value(DocumentVersion)),
             "exportCriteria": lambda n : setattr(self, 'export_criteria', n.get_collection_of_enum_values(ExportCriteria)),
             "exportFileMetadata": lambda n : setattr(self, 'export_file_metadata', n.get_collection_of_object_values(ExportFileMetadata)),
             "exportFormat": lambda n : setattr(self, 'export_format', n.get_enum_value(ExportFormat)),
@@ -95,8 +107,10 @@ class EdiscoverySearchExportOperation(CaseOperation, Parsable):
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
         writer.write_enum_value("additionalOptions", self.additional_options)
+        writer.write_enum_value("cloudAttachmentVersion", self.cloud_attachment_version)
         writer.write_str_value("description", self.description)
         writer.write_str_value("displayName", self.display_name)
+        writer.write_enum_value("documentVersion", self.document_version)
         writer.write_enum_value("exportCriteria", self.export_criteria)
         writer.write_collection_of_object_values("exportFileMetadata", self.export_file_metadata)
         writer.write_enum_value("exportFormat", self.export_format)

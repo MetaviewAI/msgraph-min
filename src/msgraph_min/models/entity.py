@@ -31,6 +31,7 @@ if TYPE_CHECKING:
     from .access_review_schedule_definition import AccessReviewScheduleDefinition
     from .access_review_set import AccessReviewSet
     from .access_review_stage import AccessReviewStage
+    from .activities_container import ActivitiesContainer
     from .activity_based_timeout_policy import ActivityBasedTimeoutPolicy
     from .activity_history_item import ActivityHistoryItem
     from .add_large_gallery_view_operation import AddLargeGalleryViewOperation
@@ -47,6 +48,7 @@ if TYPE_CHECKING:
     from .ai_interaction import AiInteraction
     from .ai_interaction_history import AiInteractionHistory
     from .ai_user import AiUser
+    from .akamai_web_application_firewall_provider import AkamaiWebApplicationFirewallProvider
     from .alert import Alert
     from .allowed_value import AllowedValue
     from .android_compliance_policy import AndroidCompliancePolicy
@@ -74,6 +76,7 @@ if TYPE_CHECKING:
     from .app_management_policy import AppManagementPolicy
     from .app_role_assignment import AppRoleAssignment
     from .app_scope import AppScope
+    from .arkose_fraud_protection_provider import ArkoseFraudProtectionProvider
     from .associated_team_info import AssociatedTeamInfo
     from .attachment import Attachment
     from .attachment_base import AttachmentBase
@@ -129,6 +132,7 @@ if TYPE_CHECKING:
     from .calendar_permission import CalendarPermission
     from .calendar_sharing_message import CalendarSharingMessage
     from .call import Call
+    from .call_event import CallEvent
     from .call_recording import CallRecording
     from .call_records.call_record import CallRecord
     from .call_records.organizer import Organizer
@@ -152,6 +156,7 @@ if TYPE_CHECKING:
     from .claims_mapping_policy import ClaimsMappingPolicy
     from .cloud_clipboard_item import CloudClipboardItem
     from .cloud_clipboard_root import CloudClipboardRoot
+    from .cloud_flare_web_application_firewall_provider import CloudFlareWebApplicationFirewallProvider
     from .cloud_pc_audit_event import CloudPcAuditEvent
     from .cloud_pc_device_image import CloudPcDeviceImage
     from .cloud_pc_gallery_image import CloudPcGalleryImage
@@ -173,6 +178,7 @@ if TYPE_CHECKING:
     from .connected_organization import ConnectedOrganization
     from .contact import Contact
     from .contact_folder import ContactFolder
+    from .content_activity import ContentActivity
     from .content_sharing_session import ContentSharingSession
     from .content_type import ContentType
     from .contract import Contract
@@ -190,6 +196,7 @@ if TYPE_CHECKING:
     from .custom_extension_stage_setting import CustomExtensionStageSetting
     from .custom_security_attribute_definition import CustomSecurityAttributeDefinition
     from .data_policy_operation import DataPolicyOperation
+    from .data_security_and_governance import DataSecurityAndGovernance
     from .day_note import DayNote
     from .default_managed_app_protection import DefaultManagedAppProtection
     from .delegated_admin_access_assignment import DelegatedAdminAccessAssignment
@@ -278,6 +285,7 @@ if TYPE_CHECKING:
     from .education_feedback_outcome import EducationFeedbackOutcome
     from .education_feedback_resource_outcome import EducationFeedbackResourceOutcome
     from .education_grading_category import EducationGradingCategory
+    from .education_grading_scheme import EducationGradingScheme
     from .education_module import EducationModule
     from .education_module_resource import EducationModuleResource
     from .education_organization import EducationOrganization
@@ -292,11 +300,20 @@ if TYPE_CHECKING:
     from .email_authentication_method import EmailAuthenticationMethod
     from .email_authentication_method_configuration import EmailAuthenticationMethodConfiguration
     from .email_file_assessment_request import EmailFileAssessmentRequest
+    from .emergency_call_event import EmergencyCallEvent
     from .employee_experience_user import EmployeeExperienceUser
     from .endpoint import Endpoint
     from .end_user_notification import EndUserNotification
     from .end_user_notification_detail import EndUserNotificationDetail
     from .engagement_async_operation import EngagementAsyncOperation
+    from .engagement_conversation import EngagementConversation
+    from .engagement_conversation_discussion_message import EngagementConversationDiscussionMessage
+    from .engagement_conversation_message import EngagementConversationMessage
+    from .engagement_conversation_message_reaction import EngagementConversationMessageReaction
+    from .engagement_conversation_question_message import EngagementConversationQuestionMessage
+    from .engagement_conversation_system_message import EngagementConversationSystemMessage
+    from .engagement_role import EngagementRole
+    from .engagement_role_member import EngagementRoleMember
     from .enrollment_configuration_assignment import EnrollmentConfigurationAssignment
     from .enrollment_troubleshooting_event import EnrollmentTroubleshootingEvent
     from .enterprise_code_signing_certificate import EnterpriseCodeSigningCertificate
@@ -332,6 +349,7 @@ if TYPE_CHECKING:
     from .file_storage import FileStorage
     from .file_storage_container import FileStorageContainer
     from .filter_operator_schema import FilterOperatorSchema
+    from .fraud_protection_provider import FraudProtectionProvider
     from .governance_insight import GovernanceInsight
     from .granular_mailbox_restore_artifact import GranularMailboxRestoreArtifact
     from .group import Group
@@ -341,6 +359,7 @@ if TYPE_CHECKING:
     from .home_realm_discovery_policy import HomeRealmDiscoveryPolicy
     from .horizontal_section import HorizontalSection
     from .horizontal_section_column import HorizontalSectionColumn
+    from .human_security_fraud_protection_provider import HumanSecurityFraudProtectionProvider
     from .identity_api_connector import IdentityApiConnector
     from .identity_built_in_user_flow_attribute import IdentityBuiltInUserFlowAttribute
     from .identity_container import IdentityContainer
@@ -395,6 +414,7 @@ if TYPE_CHECKING:
     from .item_attachment import ItemAttachment
     from .item_insights import ItemInsights
     from .item_retention_label import ItemRetentionLabel
+    from .label_content_right import LabelContentRight
     from .landing_page import LandingPage
     from .landing_page_detail import LandingPageDetail
     from .learning_assignment import LearningAssignment
@@ -469,6 +489,7 @@ if TYPE_CHECKING:
     from .mobile_app_category import MobileAppCategory
     from .mobile_app_content import MobileAppContent
     from .mobile_app_content_file import MobileAppContentFile
+    from .mobile_app_relationship import MobileAppRelationship
     from .mobile_app_troubleshooting_event import MobileAppTroubleshootingEvent
     from .mobile_contained_app import MobileContainedApp
     from .mobile_lob_app import MobileLobApp
@@ -497,15 +518,20 @@ if TYPE_CHECKING:
     from .one_drive_for_business_restore_session import OneDriveForBusinessRestoreSession
     from .online_meeting import OnlineMeeting
     from .online_meeting_base import OnlineMeetingBase
+    from .online_meeting_engagement_conversation import OnlineMeetingEngagementConversation
     from .on_attribute_collection_listener import OnAttributeCollectionListener
     from .on_attribute_collection_start_custom_extension import OnAttributeCollectionStartCustomExtension
     from .on_attribute_collection_start_listener import OnAttributeCollectionStartListener
     from .on_attribute_collection_submit_custom_extension import OnAttributeCollectionSubmitCustomExtension
     from .on_attribute_collection_submit_listener import OnAttributeCollectionSubmitListener
     from .on_authentication_method_load_start_listener import OnAuthenticationMethodLoadStartListener
+    from .on_email_otp_send_listener import OnEmailOtpSendListener
+    from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
     from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
+    from .on_otp_send_custom_extension import OnOtpSendCustomExtension
     from .on_premises_conditional_access_settings import OnPremisesConditionalAccessSettings
     from .on_premises_directory_synchronization import OnPremisesDirectorySynchronization
+    from .on_premises_sync_behavior import OnPremisesSyncBehavior
     from .on_token_issuance_start_custom_extension import OnTokenIssuanceStartCustomExtension
     from .on_token_issuance_start_listener import OnTokenIssuanceStartListener
     from .on_user_create_start_listener import OnUserCreateStartListener
@@ -535,6 +561,7 @@ if TYPE_CHECKING:
     from .partners.billing.manifest import Manifest
     from .partners.billing.operation import Operation
     from .partners.billing.running_operation import RunningOperation
+    from .partners.billing.unbilled_reconciliation import UnbilledReconciliation
     from .partners.billing.unbilled_usage import UnbilledUsage
     from .partners.partners import Partners
     from .password_authentication_method import PasswordAuthenticationMethod
@@ -545,6 +572,7 @@ if TYPE_CHECKING:
     from .permission_grant_policy import PermissionGrantPolicy
     from .person import Person
     from .phone_authentication_method import PhoneAuthenticationMethod
+    from .phone_user_conversation_member import PhoneUserConversationMember
     from .pinned_chat_message_info import PinnedChatMessageInfo
     from .place import Place
     from .planner import Planner
@@ -602,13 +630,17 @@ if TYPE_CHECKING:
     from .provisioning_object_summary import ProvisioningObjectSummary
     from .public_key_infrastructure_root import PublicKeyInfrastructureRoot
     from .rbac_application import RbacApplication
+    from .reading_assignment_submission import ReadingAssignmentSubmission
+    from .reading_coach_passage import ReadingCoachPassage
     from .record_operation import RecordOperation
     from .recycle_bin import RecycleBin
     from .recycle_bin_item import RecycleBinItem
     from .reference_attachment import ReferenceAttachment
+    from .reflect_check_in_response import ReflectCheckInResponse
     from .relying_party_detailed_summary import RelyingPartyDetailedSummary
     from .remote_assistance_partner import RemoteAssistancePartner
     from .remote_desktop_security_configuration import RemoteDesktopSecurityConfiguration
+    from .reports_root import ReportsRoot
     from .request import Request
     from .reseller_delegated_admin_relationship import ResellerDelegatedAdminRelationship
     from .resource_operation import ResourceOperation
@@ -664,6 +696,7 @@ if TYPE_CHECKING:
     from .security.ediscovery_estimate_operation import EdiscoveryEstimateOperation
     from .security.ediscovery_export_operation import EdiscoveryExportOperation
     from .security.ediscovery_hold_operation import EdiscoveryHoldOperation
+    from .security.ediscovery_hold_policy_sync_operation import EdiscoveryHoldPolicySyncOperation
     from .security.ediscovery_index_operation import EdiscoveryIndexOperation
     from .security.ediscovery_noncustodial_data_source import EdiscoveryNoncustodialDataSource
     from .security.ediscovery_purge_data_operation import EdiscoveryPurgeDataOperation
@@ -719,6 +752,7 @@ if TYPE_CHECKING:
     from .security.whois_record import WhoisRecord
     from .security_reports_root import SecurityReportsRoot
     from .send_dtmf_tones_operation import SendDtmfTonesOperation
+    from .sensitivity_label import SensitivityLabel
     from .service_announcement import ServiceAnnouncement
     from .service_announcement_attachment import ServiceAnnouncementAttachment
     from .service_announcement_base import ServiceAnnouncementBase
@@ -760,6 +794,7 @@ if TYPE_CHECKING:
     from .software_oath_authentication_method import SoftwareOathAuthenticationMethod
     from .software_oath_authentication_method_configuration import SoftwareOathAuthenticationMethodConfiguration
     from .software_update_status_summary import SoftwareUpdateStatusSummary
+    from .speaker_assignment_submission import SpeakerAssignmentSubmission
     from .standard_web_part import StandardWebPart
     from .start_hold_music_operation import StartHoldMusicOperation
     from .stop_hold_music_operation import StopHoldMusicOperation
@@ -794,10 +829,11 @@ if TYPE_CHECKING:
     from .teamwork_tag import TeamworkTag
     from .teamwork_tag_member import TeamworkTagMember
     from .team_info import TeamInfo
-    from .telecom_expense_management_partner import TelecomExpenseManagementPartner
     from .temporary_access_pass_authentication_method import TemporaryAccessPassAuthenticationMethod
     from .temporary_access_pass_authentication_method_configuration import TemporaryAccessPassAuthenticationMethodConfiguration
     from .tenant_app_management_policy import TenantAppManagementPolicy
+    from .tenant_data_security_and_governance import TenantDataSecurityAndGovernance
+    from .tenant_protection_scope_container import TenantProtectionScopeContainer
     from .terms_and_conditions import TermsAndConditions
     from .terms_and_conditions_acceptance_status import TermsAndConditionsAcceptanceStatus
     from .terms_and_conditions_assignment import TermsAndConditionsAssignment
@@ -847,10 +883,12 @@ if TYPE_CHECKING:
     from .unmute_participant_operation import UnmuteParticipantOperation
     from .update_recording_status_operation import UpdateRecordingStatusOperation
     from .url_assessment_request import UrlAssessmentRequest
+    from .usage_rights_included import UsageRightsIncluded
     from .used_insight import UsedInsight
     from .user import User
     from .user_activity import UserActivity
     from .user_consent_request import UserConsentRequest
+    from .user_data_security_and_governance import UserDataSecurityAndGovernance
     from .user_experience_analytics_app_health_application_performance import UserExperienceAnalyticsAppHealthApplicationPerformance
     from .user_experience_analytics_app_health_app_performance_by_app_version_details import UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
     from .user_experience_analytics_app_health_app_performance_by_app_version_device_id import UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId
@@ -879,6 +917,7 @@ if TYPE_CHECKING:
     from .user_flow_language_page import UserFlowLanguagePage
     from .user_insights_settings import UserInsightsSettings
     from .user_install_state_summary import UserInstallStateSummary
+    from .user_protection_scope_container import UserProtectionScopeContainer
     from .user_registration_details import UserRegistrationDetails
     from .user_scope_teams_app_installation import UserScopeTeamsAppInstallation
     from .user_settings import UserSettings
@@ -903,7 +942,10 @@ if TYPE_CHECKING:
     from .voice_authentication_method_configuration import VoiceAuthenticationMethodConfiguration
     from .vpp_token import VppToken
     from .web_app import WebApp
+    from .web_application_firewall_provider import WebApplicationFirewallProvider
+    from .web_application_firewall_verification_model import WebApplicationFirewallVerificationModel
     from .web_part import WebPart
+    from .what_if_analysis_result import WhatIfAnalysisResult
     from .win32_lob_app import Win32LobApp
     from .windows10_compliance_policy import Windows10CompliancePolicy
     from .windows10_custom_configuration import Windows10CustomConfiguration
@@ -1120,6 +1162,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .access_review_stage import AccessReviewStage
 
             return AccessReviewStage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.activitiesContainer".casefold():
+            from .activities_container import ActivitiesContainer
+
+            return ActivitiesContainer()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.activityBasedTimeoutPolicy".casefold():
             from .activity_based_timeout_policy import ActivityBasedTimeoutPolicy
 
@@ -1184,6 +1230,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .ai_user import AiUser
 
             return AiUser()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.akamaiWebApplicationFirewallProvider".casefold():
+            from .akamai_web_application_firewall_provider import AkamaiWebApplicationFirewallProvider
+
+            return AkamaiWebApplicationFirewallProvider()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.alert".casefold():
             from .alert import Alert
             from .security.alert import Alert
@@ -1293,6 +1343,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .app_scope import AppScope
 
             return AppScope()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.arkoseFraudProtectionProvider".casefold():
+            from .arkose_fraud_protection_provider import ArkoseFraudProtectionProvider
+
+            return ArkoseFraudProtectionProvider()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.associatedTeamInfo".casefold():
             from .associated_team_info import AssociatedTeamInfo
 
@@ -1513,6 +1567,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .call import Call
 
             return Call()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.callEvent".casefold():
+            from .call_event import CallEvent
+
+            return CallEvent()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.callRecording".casefold():
             from .call_recording import CallRecording
 
@@ -1606,6 +1664,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .cloud_clipboard_root import CloudClipboardRoot
 
             return CloudClipboardRoot()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.cloudFlareWebApplicationFirewallProvider".casefold():
+            from .cloud_flare_web_application_firewall_provider import CloudFlareWebApplicationFirewallProvider
+
+            return CloudFlareWebApplicationFirewallProvider()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.cloudPC".casefold():
             from .cloud_p_c import CloudPC
 
@@ -1690,6 +1752,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .contact_folder import ContactFolder
 
             return ContactFolder()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.contentActivity".casefold():
+            from .content_activity import ContentActivity
+
+            return ContentActivity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.contentSharingSession".casefold():
             from .content_sharing_session import ContentSharingSession
 
@@ -1758,6 +1824,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .data_policy_operation import DataPolicyOperation
 
             return DataPolicyOperation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.dataSecurityAndGovernance".casefold():
+            from .data_security_and_governance import DataSecurityAndGovernance
+
+            return DataSecurityAndGovernance()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.dayNote".casefold():
             from .day_note import DayNote
 
@@ -2114,6 +2184,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .education_grading_category import EducationGradingCategory
 
             return EducationGradingCategory()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.educationGradingScheme".casefold():
+            from .education_grading_scheme import EducationGradingScheme
+
+            return EducationGradingScheme()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.educationModule".casefold():
             from .education_module import EducationModule
 
@@ -2170,6 +2244,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .email_file_assessment_request import EmailFileAssessmentRequest
 
             return EmailFileAssessmentRequest()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.emergencyCallEvent".casefold():
+            from .emergency_call_event import EmergencyCallEvent
+
+            return EmergencyCallEvent()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.employeeExperienceUser".casefold():
             from .employee_experience_user import EmployeeExperienceUser
 
@@ -2190,6 +2268,38 @@ class Entity(AdditionalDataHolder, Parsable):
             from .engagement_async_operation import EngagementAsyncOperation
 
             return EngagementAsyncOperation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementConversation".casefold():
+            from .engagement_conversation import EngagementConversation
+
+            return EngagementConversation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementConversationDiscussionMessage".casefold():
+            from .engagement_conversation_discussion_message import EngagementConversationDiscussionMessage
+
+            return EngagementConversationDiscussionMessage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementConversationMessage".casefold():
+            from .engagement_conversation_message import EngagementConversationMessage
+
+            return EngagementConversationMessage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementConversationMessageReaction".casefold():
+            from .engagement_conversation_message_reaction import EngagementConversationMessageReaction
+
+            return EngagementConversationMessageReaction()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementConversationQuestionMessage".casefold():
+            from .engagement_conversation_question_message import EngagementConversationQuestionMessage
+
+            return EngagementConversationQuestionMessage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementConversationSystemMessage".casefold():
+            from .engagement_conversation_system_message import EngagementConversationSystemMessage
+
+            return EngagementConversationSystemMessage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementRole".casefold():
+            from .engagement_role import EngagementRole
+
+            return EngagementRole()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementRoleMember".casefold():
+            from .engagement_role_member import EngagementRoleMember
+
+            return EngagementRoleMember()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.enrollmentConfigurationAssignment".casefold():
             from .enrollment_configuration_assignment import EnrollmentConfigurationAssignment
 
@@ -2326,6 +2436,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .filter_operator_schema import FilterOperatorSchema
 
             return FilterOperatorSchema()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.fraudProtectionProvider".casefold():
+            from .fraud_protection_provider import FraudProtectionProvider
+
+            return FraudProtectionProvider()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.governanceInsight".casefold():
             from .governance_insight import GovernanceInsight
 
@@ -2363,6 +2477,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .horizontal_section_column import HorizontalSectionColumn
 
             return HorizontalSectionColumn()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.humanSecurityFraudProtectionProvider".casefold():
+            from .human_security_fraud_protection_provider import HumanSecurityFraudProtectionProvider
+
+            return HumanSecurityFraudProtectionProvider()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.identityApiConnector".casefold():
             from .identity_api_connector import IdentityApiConnector
 
@@ -2580,6 +2698,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .item_retention_label import ItemRetentionLabel
 
             return ItemRetentionLabel()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.labelContentRight".casefold():
+            from .label_content_right import LabelContentRight
+
+            return LabelContentRight()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.landingPage".casefold():
             from .landing_page import LandingPage
 
@@ -2876,6 +2998,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .mobile_app_content_file import MobileAppContentFile
 
             return MobileAppContentFile()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.mobileAppRelationship".casefold():
+            from .mobile_app_relationship import MobileAppRelationship
+
+            return MobileAppRelationship()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.mobileAppTroubleshootingEvent".casefold():
             from .mobile_app_troubleshooting_event import MobileAppTroubleshootingEvent
 
@@ -2976,6 +3102,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .one_drive_for_business_restore_session import OneDriveForBusinessRestoreSession
 
             return OneDriveForBusinessRestoreSession()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.onEmailOtpSendListener".casefold():
+            from .on_email_otp_send_listener import OnEmailOtpSendListener
+
+            return OnEmailOtpSendListener()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.onenote".casefold():
             from .onenote import Onenote
 
@@ -3008,6 +3138,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .onenote_section import OnenoteSection
 
             return OnenoteSection()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.onFraudProtectionLoadStartListener".casefold():
+            from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
+
+            return OnFraudProtectionLoadStartListener()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.onInteractiveAuthFlowStartListener".casefold():
             from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
 
@@ -3020,6 +3154,14 @@ class Entity(AdditionalDataHolder, Parsable):
             from .online_meeting_base import OnlineMeetingBase
 
             return OnlineMeetingBase()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.onlineMeetingEngagementConversation".casefold():
+            from .online_meeting_engagement_conversation import OnlineMeetingEngagementConversation
+
+            return OnlineMeetingEngagementConversation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.onOtpSendCustomExtension".casefold():
+            from .on_otp_send_custom_extension import OnOtpSendCustomExtension
+
+            return OnOtpSendCustomExtension()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.onPremisesConditionalAccessSettings".casefold():
             from .on_premises_conditional_access_settings import OnPremisesConditionalAccessSettings
 
@@ -3028,6 +3170,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .on_premises_directory_synchronization import OnPremisesDirectorySynchronization
 
             return OnPremisesDirectorySynchronization()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.onPremisesSyncBehavior".casefold():
+            from .on_premises_sync_behavior import OnPremisesSyncBehavior
+
+            return OnPremisesSyncBehavior()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.onTokenIssuanceStartCustomExtension".casefold():
             from .on_token_issuance_start_custom_extension import OnTokenIssuanceStartCustomExtension
 
@@ -3147,6 +3293,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .partners.billing.running_operation import RunningOperation
 
             return RunningOperation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.partners.billing.unbilledReconciliation".casefold():
+            from .partners.billing.unbilled_reconciliation import UnbilledReconciliation
+
+            return UnbilledReconciliation()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.partners.billing.unbilledUsage".casefold():
             from .partners.billing.unbilled_usage import UnbilledUsage
 
@@ -3183,6 +3333,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .phone_authentication_method import PhoneAuthenticationMethod
 
             return PhoneAuthenticationMethod()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.phoneUserConversationMember".casefold():
+            from .phone_user_conversation_member import PhoneUserConversationMember
+
+            return PhoneUserConversationMember()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.pinnedChatMessageInfo".casefold():
             from .pinned_chat_message_info import PinnedChatMessageInfo
 
@@ -3411,6 +3565,14 @@ class Entity(AdditionalDataHolder, Parsable):
             from .rbac_application import RbacApplication
 
             return RbacApplication()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.readingAssignmentSubmission".casefold():
+            from .reading_assignment_submission import ReadingAssignmentSubmission
+
+            return ReadingAssignmentSubmission()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.readingCoachPassage".casefold():
+            from .reading_coach_passage import ReadingCoachPassage
+
+            return ReadingCoachPassage()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.recordOperation".casefold():
             from .record_operation import RecordOperation
 
@@ -3427,6 +3589,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .reference_attachment import ReferenceAttachment
 
             return ReferenceAttachment()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.reflectCheckInResponse".casefold():
+            from .reflect_check_in_response import ReflectCheckInResponse
+
+            return ReflectCheckInResponse()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.relyingPartyDetailedSummary".casefold():
             from .relying_party_detailed_summary import RelyingPartyDetailedSummary
 
@@ -3439,6 +3605,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .remote_desktop_security_configuration import RemoteDesktopSecurityConfiguration
 
             return RemoteDesktopSecurityConfiguration()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.reportsRoot".casefold():
+            from .reports_root import ReportsRoot
+
+            return ReportsRoot()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.request".casefold():
             from .request import Request
 
@@ -3664,6 +3834,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .security.ediscovery_hold_operation import EdiscoveryHoldOperation
 
             return EdiscoveryHoldOperation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.security.ediscoveryHoldPolicySyncOperation".casefold():
+            from .security.ediscovery_hold_policy_sync_operation import EdiscoveryHoldPolicySyncOperation
+
+            return EdiscoveryHoldPolicySyncOperation()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.security.ediscoveryIndexOperation".casefold():
             from .security.ediscovery_index_operation import EdiscoveryIndexOperation
 
@@ -3881,6 +4055,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .send_dtmf_tones_operation import SendDtmfTonesOperation
 
             return SendDtmfTonesOperation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.sensitivityLabel".casefold():
+            from .sensitivity_label import SensitivityLabel
+
+            return SensitivityLabel()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.serviceAnnouncement".casefold():
             from .service_announcement import ServiceAnnouncement
 
@@ -4045,6 +4223,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .software_update_status_summary import SoftwareUpdateStatusSummary
 
             return SoftwareUpdateStatusSummary()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.speakerAssignmentSubmission".casefold():
+            from .speaker_assignment_submission import SpeakerAssignmentSubmission
+
+            return SpeakerAssignmentSubmission()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.standardWebPart".casefold():
             from .standard_web_part import StandardWebPart
 
@@ -4181,10 +4363,6 @@ class Entity(AdditionalDataHolder, Parsable):
             from .teamwork_tag_member import TeamworkTagMember
 
             return TeamworkTagMember()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.telecomExpenseManagementPartner".casefold():
-            from .telecom_expense_management_partner import TelecomExpenseManagementPartner
-
-            return TelecomExpenseManagementPartner()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.temporaryAccessPassAuthenticationMethod".casefold():
             from .temporary_access_pass_authentication_method import TemporaryAccessPassAuthenticationMethod
 
@@ -4197,6 +4375,14 @@ class Entity(AdditionalDataHolder, Parsable):
             from .tenant_app_management_policy import TenantAppManagementPolicy
 
             return TenantAppManagementPolicy()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.tenantDataSecurityAndGovernance".casefold():
+            from .tenant_data_security_and_governance import TenantDataSecurityAndGovernance
+
+            return TenantDataSecurityAndGovernance()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.tenantProtectionScopeContainer".casefold():
+            from .tenant_protection_scope_container import TenantProtectionScopeContainer
+
+            return TenantProtectionScopeContainer()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.termsAndConditions".casefold():
             from .terms_and_conditions import TermsAndConditions
 
@@ -4394,6 +4580,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .url_assessment_request import UrlAssessmentRequest
 
             return UrlAssessmentRequest()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.usageRightsIncluded".casefold():
+            from .usage_rights_included import UsageRightsIncluded
+
+            return UsageRightsIncluded()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.usedInsight".casefold():
             from .used_insight import UsedInsight
 
@@ -4410,6 +4600,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .user_consent_request import UserConsentRequest
 
             return UserConsentRequest()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.userDataSecurityAndGovernance".casefold():
+            from .user_data_security_and_governance import UserDataSecurityAndGovernance
+
+            return UserDataSecurityAndGovernance()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.userExperienceAnalyticsAppHealthApplicationPerformance".casefold():
             from .user_experience_analytics_app_health_application_performance import UserExperienceAnalyticsAppHealthApplicationPerformance
 
@@ -4522,6 +4716,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .user_install_state_summary import UserInstallStateSummary
 
             return UserInstallStateSummary()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.userProtectionScopeContainer".casefold():
+            from .user_protection_scope_container import UserProtectionScopeContainer
+
+            return UserProtectionScopeContainer()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.userRegistrationDetails".casefold():
             from .user_registration_details import UserRegistrationDetails
 
@@ -4618,10 +4816,22 @@ class Entity(AdditionalDataHolder, Parsable):
             from .web_app import WebApp
 
             return WebApp()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.webApplicationFirewallProvider".casefold():
+            from .web_application_firewall_provider import WebApplicationFirewallProvider
+
+            return WebApplicationFirewallProvider()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.webApplicationFirewallVerificationModel".casefold():
+            from .web_application_firewall_verification_model import WebApplicationFirewallVerificationModel
+
+            return WebApplicationFirewallVerificationModel()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.webPart".casefold():
             from .web_part import WebPart
 
             return WebPart()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.whatIfAnalysisResult".casefold():
+            from .what_if_analysis_result import WhatIfAnalysisResult
+
+            return WhatIfAnalysisResult()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.win32LobApp".casefold():
             from .win32_lob_app import Win32LobApp
 
@@ -5003,6 +5213,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .access_review_schedule_definition import AccessReviewScheduleDefinition
         from .access_review_set import AccessReviewSet
         from .access_review_stage import AccessReviewStage
+        from .activities_container import ActivitiesContainer
         from .activity_based_timeout_policy import ActivityBasedTimeoutPolicy
         from .activity_history_item import ActivityHistoryItem
         from .add_large_gallery_view_operation import AddLargeGalleryViewOperation
@@ -5019,6 +5230,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
         from .ai_user import AiUser
+        from .akamai_web_application_firewall_provider import AkamaiWebApplicationFirewallProvider
         from .alert import Alert
         from .allowed_value import AllowedValue
         from .android_compliance_policy import AndroidCompliancePolicy
@@ -5046,6 +5258,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .app_management_policy import AppManagementPolicy
         from .app_role_assignment import AppRoleAssignment
         from .app_scope import AppScope
+        from .arkose_fraud_protection_provider import ArkoseFraudProtectionProvider
         from .associated_team_info import AssociatedTeamInfo
         from .attachment import Attachment
         from .attachment_base import AttachmentBase
@@ -5101,6 +5314,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .calendar_permission import CalendarPermission
         from .calendar_sharing_message import CalendarSharingMessage
         from .call import Call
+        from .call_event import CallEvent
         from .call_recording import CallRecording
         from .call_records.call_record import CallRecord
         from .call_records.organizer import Organizer
@@ -5124,6 +5338,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .claims_mapping_policy import ClaimsMappingPolicy
         from .cloud_clipboard_item import CloudClipboardItem
         from .cloud_clipboard_root import CloudClipboardRoot
+        from .cloud_flare_web_application_firewall_provider import CloudFlareWebApplicationFirewallProvider
         from .cloud_pc_audit_event import CloudPcAuditEvent
         from .cloud_pc_device_image import CloudPcDeviceImage
         from .cloud_pc_gallery_image import CloudPcGalleryImage
@@ -5145,6 +5360,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .connected_organization import ConnectedOrganization
         from .contact import Contact
         from .contact_folder import ContactFolder
+        from .content_activity import ContentActivity
         from .content_sharing_session import ContentSharingSession
         from .content_type import ContentType
         from .contract import Contract
@@ -5162,6 +5378,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .custom_extension_stage_setting import CustomExtensionStageSetting
         from .custom_security_attribute_definition import CustomSecurityAttributeDefinition
         from .data_policy_operation import DataPolicyOperation
+        from .data_security_and_governance import DataSecurityAndGovernance
         from .day_note import DayNote
         from .default_managed_app_protection import DefaultManagedAppProtection
         from .delegated_admin_access_assignment import DelegatedAdminAccessAssignment
@@ -5250,6 +5467,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .education_feedback_outcome import EducationFeedbackOutcome
         from .education_feedback_resource_outcome import EducationFeedbackResourceOutcome
         from .education_grading_category import EducationGradingCategory
+        from .education_grading_scheme import EducationGradingScheme
         from .education_module import EducationModule
         from .education_module_resource import EducationModuleResource
         from .education_organization import EducationOrganization
@@ -5264,11 +5482,20 @@ class Entity(AdditionalDataHolder, Parsable):
         from .email_authentication_method import EmailAuthenticationMethod
         from .email_authentication_method_configuration import EmailAuthenticationMethodConfiguration
         from .email_file_assessment_request import EmailFileAssessmentRequest
+        from .emergency_call_event import EmergencyCallEvent
         from .employee_experience_user import EmployeeExperienceUser
         from .endpoint import Endpoint
         from .end_user_notification import EndUserNotification
         from .end_user_notification_detail import EndUserNotificationDetail
         from .engagement_async_operation import EngagementAsyncOperation
+        from .engagement_conversation import EngagementConversation
+        from .engagement_conversation_discussion_message import EngagementConversationDiscussionMessage
+        from .engagement_conversation_message import EngagementConversationMessage
+        from .engagement_conversation_message_reaction import EngagementConversationMessageReaction
+        from .engagement_conversation_question_message import EngagementConversationQuestionMessage
+        from .engagement_conversation_system_message import EngagementConversationSystemMessage
+        from .engagement_role import EngagementRole
+        from .engagement_role_member import EngagementRoleMember
         from .enrollment_configuration_assignment import EnrollmentConfigurationAssignment
         from .enrollment_troubleshooting_event import EnrollmentTroubleshootingEvent
         from .enterprise_code_signing_certificate import EnterpriseCodeSigningCertificate
@@ -5304,6 +5531,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .file_storage import FileStorage
         from .file_storage_container import FileStorageContainer
         from .filter_operator_schema import FilterOperatorSchema
+        from .fraud_protection_provider import FraudProtectionProvider
         from .governance_insight import GovernanceInsight
         from .granular_mailbox_restore_artifact import GranularMailboxRestoreArtifact
         from .group import Group
@@ -5313,6 +5541,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .home_realm_discovery_policy import HomeRealmDiscoveryPolicy
         from .horizontal_section import HorizontalSection
         from .horizontal_section_column import HorizontalSectionColumn
+        from .human_security_fraud_protection_provider import HumanSecurityFraudProtectionProvider
         from .identity_api_connector import IdentityApiConnector
         from .identity_built_in_user_flow_attribute import IdentityBuiltInUserFlowAttribute
         from .identity_container import IdentityContainer
@@ -5367,6 +5596,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .item_attachment import ItemAttachment
         from .item_insights import ItemInsights
         from .item_retention_label import ItemRetentionLabel
+        from .label_content_right import LabelContentRight
         from .landing_page import LandingPage
         from .landing_page_detail import LandingPageDetail
         from .learning_assignment import LearningAssignment
@@ -5441,6 +5671,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .mobile_app_category import MobileAppCategory
         from .mobile_app_content import MobileAppContent
         from .mobile_app_content_file import MobileAppContentFile
+        from .mobile_app_relationship import MobileAppRelationship
         from .mobile_app_troubleshooting_event import MobileAppTroubleshootingEvent
         from .mobile_contained_app import MobileContainedApp
         from .mobile_lob_app import MobileLobApp
@@ -5469,15 +5700,20 @@ class Entity(AdditionalDataHolder, Parsable):
         from .one_drive_for_business_restore_session import OneDriveForBusinessRestoreSession
         from .online_meeting import OnlineMeeting
         from .online_meeting_base import OnlineMeetingBase
+        from .online_meeting_engagement_conversation import OnlineMeetingEngagementConversation
         from .on_attribute_collection_listener import OnAttributeCollectionListener
         from .on_attribute_collection_start_custom_extension import OnAttributeCollectionStartCustomExtension
         from .on_attribute_collection_start_listener import OnAttributeCollectionStartListener
         from .on_attribute_collection_submit_custom_extension import OnAttributeCollectionSubmitCustomExtension
         from .on_attribute_collection_submit_listener import OnAttributeCollectionSubmitListener
         from .on_authentication_method_load_start_listener import OnAuthenticationMethodLoadStartListener
+        from .on_email_otp_send_listener import OnEmailOtpSendListener
+        from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
         from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
+        from .on_otp_send_custom_extension import OnOtpSendCustomExtension
         from .on_premises_conditional_access_settings import OnPremisesConditionalAccessSettings
         from .on_premises_directory_synchronization import OnPremisesDirectorySynchronization
+        from .on_premises_sync_behavior import OnPremisesSyncBehavior
         from .on_token_issuance_start_custom_extension import OnTokenIssuanceStartCustomExtension
         from .on_token_issuance_start_listener import OnTokenIssuanceStartListener
         from .on_user_create_start_listener import OnUserCreateStartListener
@@ -5507,6 +5743,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .partners.billing.manifest import Manifest
         from .partners.billing.operation import Operation
         from .partners.billing.running_operation import RunningOperation
+        from .partners.billing.unbilled_reconciliation import UnbilledReconciliation
         from .partners.billing.unbilled_usage import UnbilledUsage
         from .partners.partners import Partners
         from .password_authentication_method import PasswordAuthenticationMethod
@@ -5517,6 +5754,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .permission_grant_policy import PermissionGrantPolicy
         from .person import Person
         from .phone_authentication_method import PhoneAuthenticationMethod
+        from .phone_user_conversation_member import PhoneUserConversationMember
         from .pinned_chat_message_info import PinnedChatMessageInfo
         from .place import Place
         from .planner import Planner
@@ -5574,13 +5812,17 @@ class Entity(AdditionalDataHolder, Parsable):
         from .provisioning_object_summary import ProvisioningObjectSummary
         from .public_key_infrastructure_root import PublicKeyInfrastructureRoot
         from .rbac_application import RbacApplication
+        from .reading_assignment_submission import ReadingAssignmentSubmission
+        from .reading_coach_passage import ReadingCoachPassage
         from .record_operation import RecordOperation
         from .recycle_bin import RecycleBin
         from .recycle_bin_item import RecycleBinItem
         from .reference_attachment import ReferenceAttachment
+        from .reflect_check_in_response import ReflectCheckInResponse
         from .relying_party_detailed_summary import RelyingPartyDetailedSummary
         from .remote_assistance_partner import RemoteAssistancePartner
         from .remote_desktop_security_configuration import RemoteDesktopSecurityConfiguration
+        from .reports_root import ReportsRoot
         from .request import Request
         from .reseller_delegated_admin_relationship import ResellerDelegatedAdminRelationship
         from .resource_operation import ResourceOperation
@@ -5636,6 +5878,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .security.ediscovery_estimate_operation import EdiscoveryEstimateOperation
         from .security.ediscovery_export_operation import EdiscoveryExportOperation
         from .security.ediscovery_hold_operation import EdiscoveryHoldOperation
+        from .security.ediscovery_hold_policy_sync_operation import EdiscoveryHoldPolicySyncOperation
         from .security.ediscovery_index_operation import EdiscoveryIndexOperation
         from .security.ediscovery_noncustodial_data_source import EdiscoveryNoncustodialDataSource
         from .security.ediscovery_purge_data_operation import EdiscoveryPurgeDataOperation
@@ -5691,6 +5934,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .security.whois_record import WhoisRecord
         from .security_reports_root import SecurityReportsRoot
         from .send_dtmf_tones_operation import SendDtmfTonesOperation
+        from .sensitivity_label import SensitivityLabel
         from .service_announcement import ServiceAnnouncement
         from .service_announcement_attachment import ServiceAnnouncementAttachment
         from .service_announcement_base import ServiceAnnouncementBase
@@ -5732,6 +5976,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .software_oath_authentication_method import SoftwareOathAuthenticationMethod
         from .software_oath_authentication_method_configuration import SoftwareOathAuthenticationMethodConfiguration
         from .software_update_status_summary import SoftwareUpdateStatusSummary
+        from .speaker_assignment_submission import SpeakerAssignmentSubmission
         from .standard_web_part import StandardWebPart
         from .start_hold_music_operation import StartHoldMusicOperation
         from .stop_hold_music_operation import StopHoldMusicOperation
@@ -5766,10 +6011,11 @@ class Entity(AdditionalDataHolder, Parsable):
         from .teamwork_tag import TeamworkTag
         from .teamwork_tag_member import TeamworkTagMember
         from .team_info import TeamInfo
-        from .telecom_expense_management_partner import TelecomExpenseManagementPartner
         from .temporary_access_pass_authentication_method import TemporaryAccessPassAuthenticationMethod
         from .temporary_access_pass_authentication_method_configuration import TemporaryAccessPassAuthenticationMethodConfiguration
         from .tenant_app_management_policy import TenantAppManagementPolicy
+        from .tenant_data_security_and_governance import TenantDataSecurityAndGovernance
+        from .tenant_protection_scope_container import TenantProtectionScopeContainer
         from .terms_and_conditions import TermsAndConditions
         from .terms_and_conditions_acceptance_status import TermsAndConditionsAcceptanceStatus
         from .terms_and_conditions_assignment import TermsAndConditionsAssignment
@@ -5819,10 +6065,12 @@ class Entity(AdditionalDataHolder, Parsable):
         from .unmute_participant_operation import UnmuteParticipantOperation
         from .update_recording_status_operation import UpdateRecordingStatusOperation
         from .url_assessment_request import UrlAssessmentRequest
+        from .usage_rights_included import UsageRightsIncluded
         from .used_insight import UsedInsight
         from .user import User
         from .user_activity import UserActivity
         from .user_consent_request import UserConsentRequest
+        from .user_data_security_and_governance import UserDataSecurityAndGovernance
         from .user_experience_analytics_app_health_application_performance import UserExperienceAnalyticsAppHealthApplicationPerformance
         from .user_experience_analytics_app_health_app_performance_by_app_version_details import UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
         from .user_experience_analytics_app_health_app_performance_by_app_version_device_id import UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId
@@ -5851,6 +6099,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .user_flow_language_page import UserFlowLanguagePage
         from .user_insights_settings import UserInsightsSettings
         from .user_install_state_summary import UserInstallStateSummary
+        from .user_protection_scope_container import UserProtectionScopeContainer
         from .user_registration_details import UserRegistrationDetails
         from .user_scope_teams_app_installation import UserScopeTeamsAppInstallation
         from .user_settings import UserSettings
@@ -5875,7 +6124,10 @@ class Entity(AdditionalDataHolder, Parsable):
         from .voice_authentication_method_configuration import VoiceAuthenticationMethodConfiguration
         from .vpp_token import VppToken
         from .web_app import WebApp
+        from .web_application_firewall_provider import WebApplicationFirewallProvider
+        from .web_application_firewall_verification_model import WebApplicationFirewallVerificationModel
         from .web_part import WebPart
+        from .what_if_analysis_result import WhatIfAnalysisResult
         from .win32_lob_app import Win32LobApp
         from .windows10_compliance_policy import Windows10CompliancePolicy
         from .windows10_custom_configuration import Windows10CustomConfiguration
@@ -5990,6 +6242,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .access_review_schedule_definition import AccessReviewScheduleDefinition
         from .access_review_set import AccessReviewSet
         from .access_review_stage import AccessReviewStage
+        from .activities_container import ActivitiesContainer
         from .activity_based_timeout_policy import ActivityBasedTimeoutPolicy
         from .activity_history_item import ActivityHistoryItem
         from .add_large_gallery_view_operation import AddLargeGalleryViewOperation
@@ -6006,6 +6259,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
         from .ai_user import AiUser
+        from .akamai_web_application_firewall_provider import AkamaiWebApplicationFirewallProvider
         from .alert import Alert
         from .allowed_value import AllowedValue
         from .android_compliance_policy import AndroidCompliancePolicy
@@ -6033,6 +6287,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .app_management_policy import AppManagementPolicy
         from .app_role_assignment import AppRoleAssignment
         from .app_scope import AppScope
+        from .arkose_fraud_protection_provider import ArkoseFraudProtectionProvider
         from .associated_team_info import AssociatedTeamInfo
         from .attachment import Attachment
         from .attachment_base import AttachmentBase
@@ -6088,6 +6343,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .calendar_permission import CalendarPermission
         from .calendar_sharing_message import CalendarSharingMessage
         from .call import Call
+        from .call_event import CallEvent
         from .call_recording import CallRecording
         from .call_records.call_record import CallRecord
         from .call_records.organizer import Organizer
@@ -6111,6 +6367,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .claims_mapping_policy import ClaimsMappingPolicy
         from .cloud_clipboard_item import CloudClipboardItem
         from .cloud_clipboard_root import CloudClipboardRoot
+        from .cloud_flare_web_application_firewall_provider import CloudFlareWebApplicationFirewallProvider
         from .cloud_pc_audit_event import CloudPcAuditEvent
         from .cloud_pc_device_image import CloudPcDeviceImage
         from .cloud_pc_gallery_image import CloudPcGalleryImage
@@ -6132,6 +6389,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .connected_organization import ConnectedOrganization
         from .contact import Contact
         from .contact_folder import ContactFolder
+        from .content_activity import ContentActivity
         from .content_sharing_session import ContentSharingSession
         from .content_type import ContentType
         from .contract import Contract
@@ -6149,6 +6407,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .custom_extension_stage_setting import CustomExtensionStageSetting
         from .custom_security_attribute_definition import CustomSecurityAttributeDefinition
         from .data_policy_operation import DataPolicyOperation
+        from .data_security_and_governance import DataSecurityAndGovernance
         from .day_note import DayNote
         from .default_managed_app_protection import DefaultManagedAppProtection
         from .delegated_admin_access_assignment import DelegatedAdminAccessAssignment
@@ -6237,6 +6496,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .education_feedback_outcome import EducationFeedbackOutcome
         from .education_feedback_resource_outcome import EducationFeedbackResourceOutcome
         from .education_grading_category import EducationGradingCategory
+        from .education_grading_scheme import EducationGradingScheme
         from .education_module import EducationModule
         from .education_module_resource import EducationModuleResource
         from .education_organization import EducationOrganization
@@ -6251,11 +6511,20 @@ class Entity(AdditionalDataHolder, Parsable):
         from .email_authentication_method import EmailAuthenticationMethod
         from .email_authentication_method_configuration import EmailAuthenticationMethodConfiguration
         from .email_file_assessment_request import EmailFileAssessmentRequest
+        from .emergency_call_event import EmergencyCallEvent
         from .employee_experience_user import EmployeeExperienceUser
         from .endpoint import Endpoint
         from .end_user_notification import EndUserNotification
         from .end_user_notification_detail import EndUserNotificationDetail
         from .engagement_async_operation import EngagementAsyncOperation
+        from .engagement_conversation import EngagementConversation
+        from .engagement_conversation_discussion_message import EngagementConversationDiscussionMessage
+        from .engagement_conversation_message import EngagementConversationMessage
+        from .engagement_conversation_message_reaction import EngagementConversationMessageReaction
+        from .engagement_conversation_question_message import EngagementConversationQuestionMessage
+        from .engagement_conversation_system_message import EngagementConversationSystemMessage
+        from .engagement_role import EngagementRole
+        from .engagement_role_member import EngagementRoleMember
         from .enrollment_configuration_assignment import EnrollmentConfigurationAssignment
         from .enrollment_troubleshooting_event import EnrollmentTroubleshootingEvent
         from .enterprise_code_signing_certificate import EnterpriseCodeSigningCertificate
@@ -6291,6 +6560,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .file_storage import FileStorage
         from .file_storage_container import FileStorageContainer
         from .filter_operator_schema import FilterOperatorSchema
+        from .fraud_protection_provider import FraudProtectionProvider
         from .governance_insight import GovernanceInsight
         from .granular_mailbox_restore_artifact import GranularMailboxRestoreArtifact
         from .group import Group
@@ -6300,6 +6570,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .home_realm_discovery_policy import HomeRealmDiscoveryPolicy
         from .horizontal_section import HorizontalSection
         from .horizontal_section_column import HorizontalSectionColumn
+        from .human_security_fraud_protection_provider import HumanSecurityFraudProtectionProvider
         from .identity_api_connector import IdentityApiConnector
         from .identity_built_in_user_flow_attribute import IdentityBuiltInUserFlowAttribute
         from .identity_container import IdentityContainer
@@ -6354,6 +6625,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .item_attachment import ItemAttachment
         from .item_insights import ItemInsights
         from .item_retention_label import ItemRetentionLabel
+        from .label_content_right import LabelContentRight
         from .landing_page import LandingPage
         from .landing_page_detail import LandingPageDetail
         from .learning_assignment import LearningAssignment
@@ -6428,6 +6700,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .mobile_app_category import MobileAppCategory
         from .mobile_app_content import MobileAppContent
         from .mobile_app_content_file import MobileAppContentFile
+        from .mobile_app_relationship import MobileAppRelationship
         from .mobile_app_troubleshooting_event import MobileAppTroubleshootingEvent
         from .mobile_contained_app import MobileContainedApp
         from .mobile_lob_app import MobileLobApp
@@ -6456,15 +6729,20 @@ class Entity(AdditionalDataHolder, Parsable):
         from .one_drive_for_business_restore_session import OneDriveForBusinessRestoreSession
         from .online_meeting import OnlineMeeting
         from .online_meeting_base import OnlineMeetingBase
+        from .online_meeting_engagement_conversation import OnlineMeetingEngagementConversation
         from .on_attribute_collection_listener import OnAttributeCollectionListener
         from .on_attribute_collection_start_custom_extension import OnAttributeCollectionStartCustomExtension
         from .on_attribute_collection_start_listener import OnAttributeCollectionStartListener
         from .on_attribute_collection_submit_custom_extension import OnAttributeCollectionSubmitCustomExtension
         from .on_attribute_collection_submit_listener import OnAttributeCollectionSubmitListener
         from .on_authentication_method_load_start_listener import OnAuthenticationMethodLoadStartListener
+        from .on_email_otp_send_listener import OnEmailOtpSendListener
+        from .on_fraud_protection_load_start_listener import OnFraudProtectionLoadStartListener
         from .on_interactive_auth_flow_start_listener import OnInteractiveAuthFlowStartListener
+        from .on_otp_send_custom_extension import OnOtpSendCustomExtension
         from .on_premises_conditional_access_settings import OnPremisesConditionalAccessSettings
         from .on_premises_directory_synchronization import OnPremisesDirectorySynchronization
+        from .on_premises_sync_behavior import OnPremisesSyncBehavior
         from .on_token_issuance_start_custom_extension import OnTokenIssuanceStartCustomExtension
         from .on_token_issuance_start_listener import OnTokenIssuanceStartListener
         from .on_user_create_start_listener import OnUserCreateStartListener
@@ -6494,6 +6772,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .partners.billing.manifest import Manifest
         from .partners.billing.operation import Operation
         from .partners.billing.running_operation import RunningOperation
+        from .partners.billing.unbilled_reconciliation import UnbilledReconciliation
         from .partners.billing.unbilled_usage import UnbilledUsage
         from .partners.partners import Partners
         from .password_authentication_method import PasswordAuthenticationMethod
@@ -6504,6 +6783,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .permission_grant_policy import PermissionGrantPolicy
         from .person import Person
         from .phone_authentication_method import PhoneAuthenticationMethod
+        from .phone_user_conversation_member import PhoneUserConversationMember
         from .pinned_chat_message_info import PinnedChatMessageInfo
         from .place import Place
         from .planner import Planner
@@ -6561,13 +6841,17 @@ class Entity(AdditionalDataHolder, Parsable):
         from .provisioning_object_summary import ProvisioningObjectSummary
         from .public_key_infrastructure_root import PublicKeyInfrastructureRoot
         from .rbac_application import RbacApplication
+        from .reading_assignment_submission import ReadingAssignmentSubmission
+        from .reading_coach_passage import ReadingCoachPassage
         from .record_operation import RecordOperation
         from .recycle_bin import RecycleBin
         from .recycle_bin_item import RecycleBinItem
         from .reference_attachment import ReferenceAttachment
+        from .reflect_check_in_response import ReflectCheckInResponse
         from .relying_party_detailed_summary import RelyingPartyDetailedSummary
         from .remote_assistance_partner import RemoteAssistancePartner
         from .remote_desktop_security_configuration import RemoteDesktopSecurityConfiguration
+        from .reports_root import ReportsRoot
         from .request import Request
         from .reseller_delegated_admin_relationship import ResellerDelegatedAdminRelationship
         from .resource_operation import ResourceOperation
@@ -6623,6 +6907,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .security.ediscovery_estimate_operation import EdiscoveryEstimateOperation
         from .security.ediscovery_export_operation import EdiscoveryExportOperation
         from .security.ediscovery_hold_operation import EdiscoveryHoldOperation
+        from .security.ediscovery_hold_policy_sync_operation import EdiscoveryHoldPolicySyncOperation
         from .security.ediscovery_index_operation import EdiscoveryIndexOperation
         from .security.ediscovery_noncustodial_data_source import EdiscoveryNoncustodialDataSource
         from .security.ediscovery_purge_data_operation import EdiscoveryPurgeDataOperation
@@ -6678,6 +6963,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .security.whois_record import WhoisRecord
         from .security_reports_root import SecurityReportsRoot
         from .send_dtmf_tones_operation import SendDtmfTonesOperation
+        from .sensitivity_label import SensitivityLabel
         from .service_announcement import ServiceAnnouncement
         from .service_announcement_attachment import ServiceAnnouncementAttachment
         from .service_announcement_base import ServiceAnnouncementBase
@@ -6719,6 +7005,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .software_oath_authentication_method import SoftwareOathAuthenticationMethod
         from .software_oath_authentication_method_configuration import SoftwareOathAuthenticationMethodConfiguration
         from .software_update_status_summary import SoftwareUpdateStatusSummary
+        from .speaker_assignment_submission import SpeakerAssignmentSubmission
         from .standard_web_part import StandardWebPart
         from .start_hold_music_operation import StartHoldMusicOperation
         from .stop_hold_music_operation import StopHoldMusicOperation
@@ -6753,10 +7040,11 @@ class Entity(AdditionalDataHolder, Parsable):
         from .teamwork_tag import TeamworkTag
         from .teamwork_tag_member import TeamworkTagMember
         from .team_info import TeamInfo
-        from .telecom_expense_management_partner import TelecomExpenseManagementPartner
         from .temporary_access_pass_authentication_method import TemporaryAccessPassAuthenticationMethod
         from .temporary_access_pass_authentication_method_configuration import TemporaryAccessPassAuthenticationMethodConfiguration
         from .tenant_app_management_policy import TenantAppManagementPolicy
+        from .tenant_data_security_and_governance import TenantDataSecurityAndGovernance
+        from .tenant_protection_scope_container import TenantProtectionScopeContainer
         from .terms_and_conditions import TermsAndConditions
         from .terms_and_conditions_acceptance_status import TermsAndConditionsAcceptanceStatus
         from .terms_and_conditions_assignment import TermsAndConditionsAssignment
@@ -6806,10 +7094,12 @@ class Entity(AdditionalDataHolder, Parsable):
         from .unmute_participant_operation import UnmuteParticipantOperation
         from .update_recording_status_operation import UpdateRecordingStatusOperation
         from .url_assessment_request import UrlAssessmentRequest
+        from .usage_rights_included import UsageRightsIncluded
         from .used_insight import UsedInsight
         from .user import User
         from .user_activity import UserActivity
         from .user_consent_request import UserConsentRequest
+        from .user_data_security_and_governance import UserDataSecurityAndGovernance
         from .user_experience_analytics_app_health_application_performance import UserExperienceAnalyticsAppHealthApplicationPerformance
         from .user_experience_analytics_app_health_app_performance_by_app_version_details import UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
         from .user_experience_analytics_app_health_app_performance_by_app_version_device_id import UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId
@@ -6838,6 +7128,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .user_flow_language_page import UserFlowLanguagePage
         from .user_insights_settings import UserInsightsSettings
         from .user_install_state_summary import UserInstallStateSummary
+        from .user_protection_scope_container import UserProtectionScopeContainer
         from .user_registration_details import UserRegistrationDetails
         from .user_scope_teams_app_installation import UserScopeTeamsAppInstallation
         from .user_settings import UserSettings
@@ -6862,7 +7153,10 @@ class Entity(AdditionalDataHolder, Parsable):
         from .voice_authentication_method_configuration import VoiceAuthenticationMethodConfiguration
         from .vpp_token import VppToken
         from .web_app import WebApp
+        from .web_application_firewall_provider import WebApplicationFirewallProvider
+        from .web_application_firewall_verification_model import WebApplicationFirewallVerificationModel
         from .web_part import WebPart
+        from .what_if_analysis_result import WhatIfAnalysisResult
         from .win32_lob_app import Win32LobApp
         from .windows10_compliance_policy import Windows10CompliancePolicy
         from .windows10_custom_configuration import Windows10CustomConfiguration

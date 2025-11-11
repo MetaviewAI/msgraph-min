@@ -15,17 +15,17 @@ from .managed_app import ManagedApp
 @dataclass
 class ManagedMobileLobApp(ManagedApp, Parsable):
     """
-    An abstract base class containing properties for all managed mobile line of business apps.
+    An abstract base class containing properties for all managed mobile line-of-business apps.
     """
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.managedMobileLobApp"
     # The internal committed content version.
     committed_content_version: Optional[str] = None
-    # The list of content versions for this app.
+    # The list of content versions for this app. This property is read-only.
     content_versions: Optional[list[MobileAppContent]] = None
     # The name of the main Lob application file.
     file_name: Optional[str] = None
-    # The total size, including all uploaded files.
+    # The total size, including all uploaded files. This property is read-only.
     size: Optional[int] = None
     
     @staticmethod

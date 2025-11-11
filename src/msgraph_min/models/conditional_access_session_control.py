@@ -8,6 +8,7 @@ if TYPE_CHECKING:
     from .application_enforced_restrictions_session_control import ApplicationEnforcedRestrictionsSessionControl
     from .cloud_app_security_session_control import CloudAppSecuritySessionControl
     from .persistent_browser_session_control import PersistentBrowserSessionControl
+    from .secure_sign_in_session_control import SecureSignInSessionControl
     from .sign_in_frequency_session_control import SignInFrequencySessionControl
 
 @dataclass
@@ -46,6 +47,10 @@ class ConditionalAccessSessionControl(AdditionalDataHolder, Parsable):
             from .persistent_browser_session_control import PersistentBrowserSessionControl
 
             return PersistentBrowserSessionControl()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.secureSignInSessionControl".casefold():
+            from .secure_sign_in_session_control import SecureSignInSessionControl
+
+            return SecureSignInSessionControl()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.signInFrequencySessionControl".casefold():
             from .sign_in_frequency_session_control import SignInFrequencySessionControl
 
@@ -60,11 +65,13 @@ class ConditionalAccessSessionControl(AdditionalDataHolder, Parsable):
         from .application_enforced_restrictions_session_control import ApplicationEnforcedRestrictionsSessionControl
         from .cloud_app_security_session_control import CloudAppSecuritySessionControl
         from .persistent_browser_session_control import PersistentBrowserSessionControl
+        from .secure_sign_in_session_control import SecureSignInSessionControl
         from .sign_in_frequency_session_control import SignInFrequencySessionControl
 
         from .application_enforced_restrictions_session_control import ApplicationEnforcedRestrictionsSessionControl
         from .cloud_app_security_session_control import CloudAppSecuritySessionControl
         from .persistent_browser_session_control import PersistentBrowserSessionControl
+        from .secure_sign_in_session_control import SecureSignInSessionControl
         from .sign_in_frequency_session_control import SignInFrequencySessionControl
 
         fields: dict[str, Callable[[Any], None]] = {

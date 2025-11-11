@@ -16,6 +16,7 @@ if TYPE_CHECKING:
     from .calendar_group import CalendarGroup
     from .chat import Chat
     from .cloud_clipboard_root import CloudClipboardRoot
+    from .cloud_p_c import CloudPC
     from .contact import Contact
     from .contact_folder import ContactFolder
     from .custom_security_attribute_value import CustomSecurityAttributeValue
@@ -56,6 +57,7 @@ if TYPE_CHECKING:
     from .team import Team
     from .todo import Todo
     from .user_activity import UserActivity
+    from .user_data_security_and_governance import UserDataSecurityAndGovernance
     from .user_print import UserPrint
     from .user_settings import UserSettings
     from .user_solution_root import UserSolutionRoot
@@ -108,6 +110,8 @@ class User(DirectoryObject, Parsable):
     city: Optional[str] = None
     # The cloudClipboard property
     cloud_clipboard: Optional[CloudClipboardRoot] = None
+    # The user's Cloud PCs. Read-only. Nullable.
+    cloud_p_cs: Optional[list[CloudPC]] = None
     # The name of the company that the user is associated with. This property can be useful for describing the company that a guest comes from. The maximum length is 64 characters.Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
     company_name: Optional[str] = None
     # Sets whether consent was obtained for minors. Allowed values: null, Granted, Denied, and NotRequired. For more information, see legal age group property definitions. Returned only on $select. Supports $filter (eq, ne, not, and in).
@@ -126,6 +130,8 @@ class User(DirectoryObject, Parsable):
     creation_type: Optional[str] = None
     # An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role.
     custom_security_attributes: Optional[CustomSecurityAttributeValue] = None
+    # The data security and governance settings for the user. Read-only. Nullable.
+    data_security_and_governance: Optional[UserDataSecurityAndGovernance] = None
     # The name of the department in which the user works. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, and eq on null values).
     department: Optional[str] = None
     # The limit on the maximum number of devices that the user is permitted to enroll. Allowed values are 5 or 1000.
@@ -178,7 +184,7 @@ class User(DirectoryObject, Parsable):
     insights: Optional[ItemInsights] = None
     # A list for the user to describe their interests. Returned only on $select.
     interests: Optional[list[str]] = None
-    # The isManagementRestricted property
+    # true if the user is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a user who is a member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit. Returned only on $select.
     is_management_restricted: Optional[bool] = None
     # Don't use – reserved for future use.
     is_resource_account: Optional[bool] = None
@@ -355,6 +361,7 @@ class User(DirectoryObject, Parsable):
         from .calendar_group import CalendarGroup
         from .chat import Chat
         from .cloud_clipboard_root import CloudClipboardRoot
+        from .cloud_p_c import CloudPC
         from .contact import Contact
         from .contact_folder import ContactFolder
         from .custom_security_attribute_value import CustomSecurityAttributeValue
@@ -395,6 +402,7 @@ class User(DirectoryObject, Parsable):
         from .team import Team
         from .todo import Todo
         from .user_activity import UserActivity
+        from .user_data_security_and_governance import UserDataSecurityAndGovernance
         from .user_print import UserPrint
         from .user_settings import UserSettings
         from .user_solution_root import UserSolutionRoot
@@ -410,6 +418,7 @@ class User(DirectoryObject, Parsable):
         from .calendar_group import CalendarGroup
         from .chat import Chat
         from .cloud_clipboard_root import CloudClipboardRoot
+        from .cloud_p_c import CloudPC
         from .contact import Contact
         from .contact_folder import ContactFolder
         from .custom_security_attribute_value import CustomSecurityAttributeValue
@@ -450,6 +459,7 @@ class User(DirectoryObject, Parsable):
         from .team import Team
         from .todo import Todo
         from .user_activity import UserActivity
+        from .user_data_security_and_governance import UserDataSecurityAndGovernance
         from .user_print import UserPrint
         from .user_settings import UserSettings
         from .user_solution_root import UserSolutionRoot
@@ -475,6 +485,7 @@ class User(DirectoryObject, Parsable):
             "chats": lambda n : setattr(self, 'chats', n.get_collection_of_object_values(Chat)),
             "city": lambda n : setattr(self, 'city', n.get_str_value()),
             "cloudClipboard": lambda n : setattr(self, 'cloud_clipboard', n.get_object_value(CloudClipboardRoot)),
+            "cloudPCs": lambda n : setattr(self, 'cloud_p_cs', n.get_collection_of_object_values(CloudPC)),
             "companyName": lambda n : setattr(self, 'company_name', n.get_str_value()),
             "consentProvidedForMinor": lambda n : setattr(self, 'consent_provided_for_minor', n.get_str_value()),
             "contactFolders": lambda n : setattr(self, 'contact_folders', n.get_collection_of_object_values(ContactFolder)),
@@ -484,6 +495,7 @@ class User(DirectoryObject, Parsable):
             "createdObjects": lambda n : setattr(self, 'created_objects', n.get_collection_of_object_values(DirectoryObject)),
             "creationType": lambda n : setattr(self, 'creation_type', n.get_str_value()),
             "customSecurityAttributes": lambda n : setattr(self, 'custom_security_attributes', n.get_object_value(CustomSecurityAttributeValue)),
+            "dataSecurityAndGovernance": lambda n : setattr(self, 'data_security_and_governance', n.get_object_value(UserDataSecurityAndGovernance)),
             "department": lambda n : setattr(self, 'department', n.get_str_value()),
             "deviceEnrollmentLimit": lambda n : setattr(self, 'device_enrollment_limit', n.get_int_value()),
             "deviceManagementTroubleshootingEvents": lambda n : setattr(self, 'device_management_troubleshooting_events', n.get_collection_of_object_values(DeviceManagementTroubleshootingEvent)),
@@ -618,6 +630,7 @@ class User(DirectoryObject, Parsable):
         writer.write_collection_of_object_values("chats", self.chats)
         writer.write_str_value("city", self.city)
         writer.write_object_value("cloudClipboard", self.cloud_clipboard)
+        writer.write_collection_of_object_values("cloudPCs", self.cloud_p_cs)
         writer.write_str_value("companyName", self.company_name)
         writer.write_str_value("consentProvidedForMinor", self.consent_provided_for_minor)
         writer.write_collection_of_object_values("contactFolders", self.contact_folders)
@@ -627,6 +640,7 @@ class User(DirectoryObject, Parsable):
         writer.write_collection_of_object_values("createdObjects", self.created_objects)
         writer.write_str_value("creationType", self.creation_type)
         writer.write_object_value("customSecurityAttributes", self.custom_security_attributes)
+        writer.write_object_value("dataSecurityAndGovernance", self.data_security_and_governance)
         writer.write_str_value("department", self.department)
         writer.write_int_value("deviceEnrollmentLimit", self.device_enrollment_limit)
         writer.write_collection_of_object_values("deviceManagementTroubleshootingEvents", self.device_management_troubleshooting_events)

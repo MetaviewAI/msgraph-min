@@ -36,5 +36,8 @@ class DetectionSource(str, Enum):
     MicrosoftDefenderThreatIntelligenceAnalytics = "microsoftDefenderThreatIntelligenceAnalytics",
     BuiltInMl = "builtInMl",
     MicrosoftInsiderRiskManagement = "microsoftInsiderRiskManagement",
+    MicrosoftThreatIntelligence = "microsoftThreatIntelligence",
+    MicrosoftDefenderForAIServices = "microsoftDefenderForAIServices",
+    SecurityCopilot = "securityCopilot",
     MicrosoftSentinel = "microsoftSentinel",
 

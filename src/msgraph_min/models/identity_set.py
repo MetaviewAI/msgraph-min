@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
     from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
     from .communications_identity_set import CommunicationsIdentitySet
+    from .engagement_identity_set import EngagementIdentitySet
     from .identity import Identity
     from .share_point_identity_set import SharePointIdentitySet
 
@@ -61,6 +62,10 @@ class IdentitySet(AdditionalDataHolder, Parsable):
             from .communications_identity_set import CommunicationsIdentitySet
 
             return CommunicationsIdentitySet()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementIdentitySet".casefold():
+            from .engagement_identity_set import EngagementIdentitySet
+
+            return EngagementIdentitySet()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.sharePointIdentitySet".casefold():
             from .share_point_identity_set import SharePointIdentitySet
 
@@ -77,6 +82,7 @@ class IdentitySet(AdditionalDataHolder, Parsable):
         from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
         from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
         from .communications_identity_set import CommunicationsIdentitySet
+        from .engagement_identity_set import EngagementIdentitySet
         from .identity import Identity
         from .share_point_identity_set import SharePointIdentitySet
 
@@ -85,6 +91,7 @@ class IdentitySet(AdditionalDataHolder, Parsable):
         from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
         from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
         from .communications_identity_set import CommunicationsIdentitySet
+        from .engagement_identity_set import EngagementIdentitySet
         from .identity import Identity
         from .share_point_identity_set import SharePointIdentitySet
 
