@@ -16,6 +16,9 @@ from .online_meeting_base import OnlineMeetingBase
 
 @dataclass
 class OnlineMeeting(OnlineMeetingBase, Parsable):
+    """
+    Represents a Microsoft online meeting.
+    """
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.onlineMeeting"
     # The content stream of the attendee report of a Microsoft Teams live event. Read-only.
@@ -26,7 +29,7 @@ class OnlineMeeting(OnlineMeetingBase, Parsable):
     creation_date_time: Optional[datetime.datetime] = None
     # The meeting end time in UTC. Required when you create an online meeting.
     end_date_time: Optional[datetime.datetime] = None
-    # The externalId property
+    # The external ID that is a custom identifier. Optional.
     external_id: Optional[str] = None
     # Indicates whether this meeting is a Teams live event.
     is_broadcast: Optional[bool] = None

@@ -8,6 +8,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .calendar.calendar_request_builder import CalendarRequestBuilder
     from .events.events_request_builder import EventsRequestBuilder
+    from .messages.messages_request_builder import MessagesRequestBuilder
 
 class MeRequestBuilder(BaseRequestBuilder):
     """
@@ -39,5 +40,14 @@ class MeRequestBuilder(BaseRequestBuilder):
         from .events.events_request_builder import EventsRequestBuilder
 
         return EventsRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def messages(self) -> MessagesRequestBuilder:
+        """
+        The messages property
+        """
+        from .messages.messages_request_builder import MessagesRequestBuilder
+
+        return MessagesRequestBuilder(self.request_adapter, self.path_parameters)
     
 

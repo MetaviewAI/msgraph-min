@@ -5,6 +5,7 @@ from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, Par
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .custom_metadata_dictionary import CustomMetadataDictionary
     from .file_storage_container_custom_property_dictionary import FileStorageContainerCustomPropertyDictionary
     from .result_template_dictionary import ResultTemplateDictionary
 
@@ -30,6 +31,10 @@ class Dictionary(AdditionalDataHolder, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.customMetadataDictionary".casefold():
+            from .custom_metadata_dictionary import CustomMetadataDictionary
+
+            return CustomMetadataDictionary()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.fileStorageContainerCustomPropertyDictionary".casefold():
             from .file_storage_container_custom_property_dictionary import FileStorageContainerCustomPropertyDictionary
 
@@ -45,9 +50,11 @@ class Dictionary(AdditionalDataHolder, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .custom_metadata_dictionary import CustomMetadataDictionary
         from .file_storage_container_custom_property_dictionary import FileStorageContainerCustomPropertyDictionary
         from .result_template_dictionary import ResultTemplateDictionary
 
+        from .custom_metadata_dictionary import CustomMetadataDictionary
         from .file_storage_container_custom_property_dictionary import FileStorageContainerCustomPropertyDictionary
         from .result_template_dictionary import ResultTemplateDictionary
 

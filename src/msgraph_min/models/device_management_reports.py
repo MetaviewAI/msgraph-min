@@ -12,10 +12,7 @@ from .entity import Entity
 
 @dataclass
 class DeviceManagementReports(Entity, Parsable):
-    """
-    Singleton entity that acts as a container for all reports functionality.
-    """
-    # Entity representing a job to export a report
+    # Entity representing a job to export a report.
     export_jobs: Optional[list[DeviceManagementExportJob]] = None
     # The OdataType property
     odata_type: Optional[str] = None

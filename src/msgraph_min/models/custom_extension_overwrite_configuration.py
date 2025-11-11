@@ -5,6 +5,7 @@ from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, Par
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .custom_extension_behavior_on_error import CustomExtensionBehaviorOnError
     from .custom_extension_client_configuration import CustomExtensionClientConfiguration
 
 @dataclass
@@ -12,6 +13,8 @@ class CustomExtensionOverwriteConfiguration(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
 
+    # The behaviorOnError property
+    behavior_on_error: Optional[CustomExtensionBehaviorOnError] = None
     # Configuration regarding properties of the custom extension which can be overwritten per event listener. If no values are provided, the properties on the custom extension are used.
     client_configuration: Optional[CustomExtensionClientConfiguration] = None
     # The OdataType property
@@ -33,11 +36,14 @@ class CustomExtensionOverwriteConfiguration(AdditionalDataHolder, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .custom_extension_behavior_on_error import CustomExtensionBehaviorOnError
         from .custom_extension_client_configuration import CustomExtensionClientConfiguration
 
+        from .custom_extension_behavior_on_error import CustomExtensionBehaviorOnError
         from .custom_extension_client_configuration import CustomExtensionClientConfiguration
 
         fields: dict[str, Callable[[Any], None]] = {
+            "behaviorOnError": lambda n : setattr(self, 'behavior_on_error', n.get_object_value(CustomExtensionBehaviorOnError)),
             "clientConfiguration": lambda n : setattr(self, 'client_configuration', n.get_object_value(CustomExtensionClientConfiguration)),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
         }
@@ -51,6 +57,7 @@ class CustomExtensionOverwriteConfiguration(AdditionalDataHolder, Parsable):
         """
         if writer is None:
             raise TypeError("writer cannot be null.")
+        writer.write_object_value("behaviorOnError", self.behavior_on_error)
         writer.write_object_value("clientConfiguration", self.client_configuration)
         writer.write_str_value("@odata.type", self.odata_type)
         writer.write_additional_data_value(self.additional_data)
