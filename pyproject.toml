@@ -13,7 +13,7 @@ microsoft-kiota-authentication-azure = "^1.9.3"
 requests = "^2.32.4"
 urllib3 = "^2.6.3"
 # Security patches for transitive dependencies
-aiohttp = "^3.13.3"
+aiohttp = "^3.13.4"
 azure-core = "^1.38.0"
 
 
