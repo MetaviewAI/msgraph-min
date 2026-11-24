@@ -1,0 +1,26 @@
+name: Pull request CI
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Microsoft Graph client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: python -m pip install poetry==2.2.1
+      - run: poetry check --lock
+      - run: poetry sync --no-root --no-interaction
+      - run: poetry build --format wheel
+      - run: poetry run pip install --no-deps dist/*.whl
+      - run: poetry run python -c 'from msgraph_min.graph_service_client import GraphServiceClient'
